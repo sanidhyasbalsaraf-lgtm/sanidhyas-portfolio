@@ -9,6 +9,9 @@
   --border: #e5e7eb;
   --accent: #d97706;
   --accent-foreground: #171717;
+  /* Darker shade for accent used as small/normal text — #d97706 on white is
+     only ~3.2:1 (fails WCAG AA 4.5:1); #92400e is ~7:1. */
+  --accent-text: #92400e;
 }
 
 .dark {
@@ -18,6 +21,8 @@
   --border: #262626;
   --accent: #fbbf24;
   --accent-foreground: #171717;
+  /* #fbbf24 already has high contrast against the near-black dark background. */
+  --accent-text: #fbbf24;
 }
 
 @theme inline {
@@ -27,6 +32,7 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-text: var(--accent-text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-display: var(--font-fraunces);
@@ -44,18 +50,27 @@ h3 {
   font-weight: 600;
 }
 
-/* Animated underline for inline text links. Usage: className="link-underline" */
+/* Animated underline for inline text links. Usage: className="link-underline"
+   Uses a transform (not background-size) so it runs on the GPU. */
 .link-underline {
   position: relative;
-  background-image: linear-gradient(currentColor, currentColor);
-  background-size: 0% 1.5px;
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  transition: background-size 0.25s ease;
 }
 
-.link-underline:hover {
-  background-size: 100% 1.5px;
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
 }
 
 @keyframes fade-in-up {
@@ -71,4 +86,20 @@ h3 {
 
 .animate-fade-in-up {
   animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Keep opacity fades, drop movement/scale for users who asked for reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up {
+    animation-duration: 0.01ms;
+    animation-delay: 0s !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -4,7 +4,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group flex flex-col gap-3 rounded-2xl border border-border p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-[0_16px_32px_-16px_rgba(0,0,0,0.25)]">
       <div className="flex items-baseline justify-between gap-4">
-        <h3 className="font-semibold transition-colors group-hover:text-accent">
+        <h3 className="text-lg font-semibold transition-colors group-hover:text-accent-text">
           {project.title}
         </h3>
         {project.year && (
@@ -43,7 +43,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline hover:text-accent"
+              className="link-underline hover:text-accent-text"
             >
               Live
             </a>
@@ -53,7 +53,7 @@ export default function ProjectCard({ project }: { project: Project }) {
               href={project.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline hover:text-accent"
+              className="link-underline hover:text-accent-text"
             >
               Source
             </a>

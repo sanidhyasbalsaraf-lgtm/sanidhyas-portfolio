@@ -20,7 +20,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="Toggle color theme"
-      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-muted transition-all duration-200 hover:border-accent hover:text-accent hover:bg-accent/10 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
+      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-muted transition-all duration-200 hover:border-accent hover:text-accent-text hover:bg-accent/10 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
     >
       <svg
         viewBox="0 0 24 24"

@@ -8,14 +8,14 @@ export default function Footer() {
           © {new Date().getFullYear()} {site.name}
         </p>
         <div className="flex gap-4 font-medium">
-          <a href={`mailto:${site.email}`} className="link-underline hover:text-accent">
+          <a href={`mailto:${site.email}`} className="link-underline hover:text-accent-text">
             Email
           </a>
           <a
             href={site.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-underline hover:text-accent"
+            className="link-underline hover:text-accent-text"
           >
             GitHub
           </a>
@@ -23,7 +23,7 @@ export default function Footer() {
             href={site.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-underline hover:text-accent"
+            className="link-underline hover:text-accent-text"
           >
             LinkedIn
           </a>

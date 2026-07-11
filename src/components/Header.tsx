@@ -40,7 +40,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="link-underline transition hover:text-accent"
+                  className="link-underline transition hover:text-accent-text"
                 >
                   {link.label}
                 </Link>
@@ -87,7 +87,7 @@ export default function Header() {
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-3 transition hover:text-accent"
+                  className="block py-3 transition hover:text-accent-text"
                 >
                   {link.label}
                 </Link>
