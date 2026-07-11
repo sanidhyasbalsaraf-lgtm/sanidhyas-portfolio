@@ -1,9 +1,11 @@
 import fs from "fs";
 import path from "path";
+import { photoCaptions } from "@/data/photo-captions";
 
 export type Photo = {
   src: string;
   alt: string;
+  caption?: string;
 };
 
 const PHOTOS_DIR = path.join(process.cwd(), "public", "photos");
@@ -15,7 +17,7 @@ function filenameToAlt(filename: string): string {
 }
 
 // Drop image files into /public/photos and they'll show up here automatically —
-// no code changes needed.
+// no code changes needed. Add an entry to src/data/photo-captions.ts to caption one.
 export function getPhotos(): Photo[] {
   if (!fs.existsSync(PHOTOS_DIR)) return [];
 
@@ -25,6 +27,7 @@ export function getPhotos(): Photo[] {
     .sort()
     .map((file) => ({
       src: `/photos/${file}`,
-      alt: filenameToAlt(file),
+      alt: photoCaptions[file] ?? filenameToAlt(file),
+      caption: photoCaptions[file],
     }));
 }

@@ -35,20 +35,26 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
     <>
       <div className="columns-1 gap-4 sm:columns-2 md:columns-3 [&>*]:mb-4">
         {photos.map((photo, index) => (
-          <button
-            key={photo.src}
-            onClick={() => setActiveIndex(index)}
-            className="block w-full overflow-hidden rounded-xl border border-border"
-          >
-            <Image
-              src={photo.src}
-              alt={photo.alt}
-              width={800}
-              height={600}
-              className="h-auto w-full object-cover transition hover:opacity-90"
-              sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
-            />
-          </button>
+          <figure key={photo.src}>
+            <button
+              onClick={() => setActiveIndex(index)}
+              className="block w-full overflow-hidden rounded-xl border border-border"
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                width={800}
+                height={600}
+                className="h-auto w-full object-cover transition hover:opacity-90"
+                sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+              />
+            </button>
+            {photo.caption && (
+              <figcaption className="mt-2 text-sm text-muted">
+                {photo.caption}
+              </figcaption>
+            )}
+          </figure>
         ))}
       </div>
 
@@ -74,14 +80,21 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
           >
             ‹
           </button>
-          <Image
-            src={active.src}
-            alt={active.alt}
-            width={1600}
-            height={1200}
-            className="max-h-[85vh] w-auto max-w-[90vw] rounded-lg object-contain"
+          <div
+            className="flex max-h-[85vh] max-w-[90vw] flex-col items-center gap-3"
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <Image
+              src={active.src}
+              alt={active.alt}
+              width={1600}
+              height={1200}
+              className="max-h-[calc(85vh-2.5rem)] w-auto max-w-full rounded-lg object-contain"
+            />
+            {active.caption && (
+              <p className="text-sm text-white/80">{active.caption}</p>
+            )}
+          </div>
           <button
             onClick={(e) => {
               e.stopPropagation();
