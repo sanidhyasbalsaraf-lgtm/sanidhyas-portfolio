@@ -81,7 +81,7 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
             {rest.map((photo, index) => (
               <figure
                 key={photo.src}
-                className="animate-fade-in-up"
+                className="animate-fade-in-up break-inside-avoid"
                 style={{ animationDelay: `${Math.min(index, 6) * 70}ms` }}
               >
                 <button
