@@ -18,7 +18,7 @@ export default function ProjectsPage() {
       {projects.length === 0 ? (
         <p className="text-muted">Nothing here yet — check back soon.</p>
       ) : (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}

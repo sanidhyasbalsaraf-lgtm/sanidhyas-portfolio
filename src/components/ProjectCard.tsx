@@ -12,6 +12,16 @@ export default function ProjectCard({ project }: { project: Project }) {
       <p className="text-sm leading-relaxed text-muted">
         {project.description}
       </p>
+      {project.highlights && project.highlights.length > 0 && (
+        <ul className="flex flex-col gap-1.5 text-sm leading-relaxed text-muted">
+          {project.highlights.map((point) => (
+            <li key={point} className="flex gap-2">
+              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted" />
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
+      )}
       {project.tags.length > 0 && (
         <ul className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
