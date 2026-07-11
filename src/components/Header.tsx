@@ -20,27 +20,27 @@ export default function Header() {
       <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
         <Link
           href="/"
-          className="flex items-center gap-2.5"
+          className="group flex items-center gap-2.5"
           onClick={() => setMenuOpen(false)}
         >
           <span
             aria-hidden="true"
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-foreground/15 bg-foreground/5 font-display text-sm font-semibold tracking-tight"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent font-display text-sm font-bold tracking-tight text-accent-foreground transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110"
           >
             {site.initials}
           </span>
-          <span className="font-display text-base font-medium tracking-tight">
+          <span className="font-display text-base font-semibold tracking-tight">
             {site.name}
           </span>
         </Link>
 
         <nav className="hidden items-center gap-6 sm:flex">
-          <ul className="flex gap-5 text-sm text-muted">
+          <ul className="flex gap-6 text-sm font-medium text-muted">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="transition hover:text-foreground"
+                  className="link-underline transition hover:text-accent"
                 >
                   {link.label}
                 </Link>
@@ -56,7 +56,7 @@ export default function Header() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition hover:border-foreground hover:bg-foreground/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition-all duration-200 hover:border-accent hover:bg-accent/10 active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50"
           >
             <span className="relative flex h-4 w-4 items-center justify-center">
               <span
@@ -81,13 +81,13 @@ export default function Header() {
 
       {menuOpen && (
         <nav className="border-t border-border sm:hidden">
-          <ul className="mx-auto flex max-w-3xl flex-col px-6 py-2 text-sm text-muted">
+          <ul className="mx-auto flex max-w-3xl flex-col px-6 py-2 text-sm font-medium text-muted">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-3 transition hover:text-foreground"
+                  className="block py-3 transition hover:text-accent"
                 >
                   {link.label}
                 </Link>

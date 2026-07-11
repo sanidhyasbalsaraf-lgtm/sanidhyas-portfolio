@@ -12,7 +12,9 @@ export default function PhotographyPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-2xl font-medium tracking-tight">Photography</h1>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          Photography
+        </h1>
         <p className="mt-2 text-muted">
           A selection of photos I&apos;ve taken.
         </p>

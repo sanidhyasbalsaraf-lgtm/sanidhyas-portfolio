@@ -7,15 +7,15 @@ export default function Footer() {
         <p>
           © {new Date().getFullYear()} {site.name}
         </p>
-        <div className="flex gap-4">
-          <a href={`mailto:${site.email}`} className="hover:text-foreground">
+        <div className="flex gap-4 font-medium">
+          <a href={`mailto:${site.email}`} className="link-underline hover:text-accent">
             Email
           </a>
           <a
             href={site.social.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground"
+            className="link-underline hover:text-accent"
           >
             GitHub
           </a>
@@ -23,7 +23,7 @@ export default function Footer() {
             href={site.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground"
+            className="link-underline hover:text-accent"
           >
             LinkedIn
           </a>

@@ -38,14 +38,14 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
           <figure key={photo.src}>
             <button
               onClick={() => setActiveIndex(index)}
-              className="block w-full overflow-hidden rounded-xl border border-border"
+              className="group block w-full overflow-hidden rounded-xl border border-border transition-colors duration-200 hover:border-accent"
             >
               <Image
                 src={photo.src}
                 alt={photo.alt}
                 width={800}
                 height={600}
-                className="h-auto w-full object-cover transition hover:opacity-90"
+                className="h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                 sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
               />
             </button>
@@ -66,7 +66,7 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
           <button
             onClick={close}
             aria-label="Close"
-            className="absolute right-6 top-6 text-2xl text-white/80 hover:text-white"
+            className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full text-2xl text-white/80 transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-accent-foreground"
           >
             ✕
           </button>
@@ -76,7 +76,7 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
               show(-1);
             }}
             aria-label="Previous photo"
-            className="absolute left-4 text-3xl text-white/70 hover:text-white"
+            className="absolute left-4 flex h-12 w-12 items-center justify-center rounded-full text-3xl text-white/70 transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-accent-foreground"
           >
             ‹
           </button>
@@ -101,7 +101,7 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
               show(1);
             }}
             aria-label="Next photo"
-            className="absolute right-4 text-3xl text-white/70 hover:text-white"
+            className="absolute right-4 flex h-12 w-12 items-center justify-center rounded-full text-3xl text-white/70 transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-accent-foreground"
           >
             ›
           </button>

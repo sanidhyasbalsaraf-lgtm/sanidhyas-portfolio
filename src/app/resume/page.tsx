@@ -15,7 +15,9 @@ export default function ResumePage() {
     <div className="flex flex-col gap-8">
       <div className="flex items-baseline justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-medium tracking-tight">Resume</h1>
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Resume
+          </h1>
           <p className="mt-2 text-muted">
             {hasResume
               ? "View or download my latest resume below."
@@ -26,7 +28,7 @@ export default function ResumePage() {
           <a
             href="/resume.pdf"
             download
-            className="shrink-0 rounded-full border border-foreground px-4 py-2 text-sm transition hover:bg-foreground hover:text-background"
+            className="shrink-0 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground shadow-[0_0_0_0_var(--accent)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_var(--accent)] active:translate-y-0"
           >
             Download PDF
           </a>

@@ -10,7 +10,9 @@ export default function ProjectsPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-2xl font-medium tracking-tight">Projects</h1>
+        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+          Projects
+        </h1>
         <p className="mt-2 text-muted">
           Things I&apos;ve built, in progress or shipped.
         </p>
