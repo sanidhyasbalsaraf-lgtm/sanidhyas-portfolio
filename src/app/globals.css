@@ -9,7 +9,7 @@
   --border: #e5e7eb;
   --accent: #d97706;
   --accent-foreground: #171717;
-  /* Darker shade for accent used as small/normal text — #d97706 on white is
+  /* Darker shade for accent used as small/normal text: #d97706 on white is
      only ~3.2:1 (fails WCAG AA 4.5:1); #92400e is ~7:1. */
   --accent-text: #92400e;
 }
@@ -35,7 +35,7 @@
   --color-accent-text: var(--accent-text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-fraunces);
+  --font-display: var(--font-outfit);
 }
 
 body {
@@ -48,6 +48,10 @@ h3 {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
   font-weight: 600;
+}
+
+h1 {
+  font-weight: 700;
 }
 
 /* Animated underline for inline text links. Usage: className="link-underline"

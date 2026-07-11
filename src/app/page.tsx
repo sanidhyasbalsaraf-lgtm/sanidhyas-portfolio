@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/data/site";
 import { projects } from "@/data/projects";
@@ -7,58 +8,63 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-20">
-      <section className="flex flex-col gap-5">
-        <p className="animate-fade-in-up text-sm font-medium tracking-wide text-accent-text">
-          {site.location}
-        </p>
-        <h1
-          className="animate-fade-in-up text-5xl leading-[1.05] font-semibold tracking-tight sm:text-6xl"
-          style={{ animationDelay: "80ms" }}
-        >
-          {site.name}
-        </h1>
-        <p
-          className="animate-fade-in-up text-lg text-muted"
-          style={{ animationDelay: "140ms" }}
-        >
-          {site.role}
-        </p>
-        <p
-          className="animate-fade-in-up max-w-xl leading-relaxed"
-          style={{ animationDelay: "200ms" }}
-        >
-          {site.bio}
-        </p>
-        <div
-          className="animate-fade-in-up mt-3 flex gap-4 text-sm"
-          style={{ animationDelay: "260ms" }}
-        >
-          <Link
-            href="/projects"
-            className="rounded-full bg-accent px-5 py-2.5 font-semibold text-accent-foreground shadow-[0_0_0_0_var(--accent)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_var(--accent)] active:translate-y-0"
+      <section className="grid grid-cols-1 items-center gap-10 md:grid-cols-[3fr_2fr]">
+        <div className="flex flex-col gap-5">
+          <p className="animate-fade-in-up text-sm font-medium tracking-wide text-accent-text">
+            {site.location}
+          </p>
+          <h1
+            className="animate-fade-in-up text-5xl leading-[1.05] tracking-tight sm:text-6xl"
+            style={{ animationDelay: "80ms" }}
           >
-            View projects
-          </Link>
-          <Link
-            href="/photography"
-            className="rounded-full border border-border px-5 py-2.5 font-medium text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent-text active:translate-y-0"
+            {site.name}
+          </h1>
+          <p
+            className="animate-fade-in-up max-w-md leading-relaxed text-muted"
+            style={{ animationDelay: "140ms" }}
           >
-            See photography
-          </Link>
+            {site.heroSubtext}
+          </p>
+          <div
+            className="animate-fade-in-up mt-3 flex gap-4 text-sm"
+            style={{ animationDelay: "200ms" }}
+          >
+            <Link
+              href="/projects"
+              className="rounded-full bg-accent px-5 py-2.5 font-semibold text-accent-foreground shadow-[0_0_0_0_var(--accent)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_var(--accent)] active:translate-y-0"
+            >
+              View projects
+            </Link>
+            <Link
+              href="/photography"
+              className="rounded-full border border-border px-5 py-2.5 font-medium text-muted transition-all duration-200 hover:-translate-y-0.5 hover:border-accent hover:text-accent-text active:translate-y-0"
+            >
+              See photography
+            </Link>
+          </div>
+        </div>
+
+        <div className="animate-fade-in-up relative aspect-[4/5] overflow-hidden rounded-2xl border border-border">
+          <Image
+            src="/photos/conwy-castle-aerial.jpg"
+            alt="Conwy Castle and harbour, one of the photos in the photography section"
+            fill
+            priority
+            sizes="(min-width: 768px) 40vw, 100vw"
+            className="object-cover"
+          />
         </div>
       </section>
 
       {featured.length > 0 && (
         <section className="flex flex-col gap-4">
           <div className="flex items-baseline justify-between">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
-              Recent projects
-            </h2>
+            <h2 className="text-xl font-semibold">Recent projects</h2>
             <Link
               href="/projects"
               className="link-underline text-sm text-muted hover:text-accent-text"
             >
-              View all →
+              View all
             </Link>
           </div>
           <ul className="flex flex-col divide-y divide-border">

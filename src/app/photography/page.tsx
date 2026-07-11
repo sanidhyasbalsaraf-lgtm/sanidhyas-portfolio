@@ -21,7 +21,7 @@ export default function PhotographyPage() {
       </div>
       {photos.length === 0 ? (
         <p className="text-muted">
-          No photos yet — drop image files into{" "}
+          No photos yet. Drop image files into{" "}
           <code className="rounded bg-border/50 px-1.5 py-0.5">
             public/photos
           </code>{" "}
