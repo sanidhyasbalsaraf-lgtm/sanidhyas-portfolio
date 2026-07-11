@@ -20,10 +20,18 @@ export default function Header() {
       <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
         <Link
           href="/"
-          className="font-medium tracking-tight"
+          className="flex items-center gap-2.5"
           onClick={() => setMenuOpen(false)}
         >
-          {site.name}
+          <span
+            aria-hidden="true"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-foreground/15 bg-foreground/5 font-display text-sm font-semibold tracking-tight"
+          >
+            {site.initials}
+          </span>
+          <span className="font-display text-base font-medium tracking-tight">
+            {site.name}
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-6 sm:flex">
