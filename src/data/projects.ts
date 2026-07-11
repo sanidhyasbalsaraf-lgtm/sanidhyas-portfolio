@@ -1,10 +1,13 @@
 // Add a new object to this array each time you want a new project on the site.
 // Order here = display order (top of array shows first).
+// slug becomes the URL: /projects/<slug> - keep it stable once published.
 export type Project = {
+  slug: string;
   title: string;
   description: string;
   tags: string[];
-  highlights?: string[]; // optional bullet points for more detail
+  highlights?: string[]; // shown on the project's own detail page
+  image?: string; // optional path under /public, e.g. "/projects/my-shot.jpg"
   link?: string; // live demo URL
   repo?: string; // source code URL
   year?: string;
@@ -12,6 +15,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "linkedin-job-outreach-copilot",
     title: "LinkedIn Job & Outreach Copilot",
     description:
       "A Chrome extension that pulls the job description and hiring-manager info off a LinkedIn job posting, then drafts a connection note, InMail, or cover-note reply in your own writing style using OpenAI.",
@@ -27,9 +31,15 @@ export const projects: Project[] = [
     year: "2026",
   },
   {
+    slug: "portfolio-website",
     title: "Portfolio Website",
     description:
       "This site is a Next.js portfolio for showcasing projects, photography, and my resume, deployed on Vercel.",
+    highlights: [
+      "Content lives in plain data files (src/data) and public/photos, so new projects and photos ship without touching UI code",
+      "Dark and light mode with no flash on load, an accent color tuned for WCAG AA contrast in both modes",
+      "Photography gallery with a featured banner, hover-zoom grid, and a lightbox with keyboard navigation",
+    ],
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     repo: "https://github.com/sanidhyasbalsaraf-lgtm/sanidhyas-portfolio",
     year: "2026",

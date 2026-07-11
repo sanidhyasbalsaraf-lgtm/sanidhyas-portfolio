@@ -69,8 +69,8 @@ export default function Home() {
           </div>
           <ul className="flex flex-col divide-y divide-border">
             {featured.map((project) => (
-              <li key={project.title} className="group py-5">
-                <Link href="/projects" className="block">
+              <li key={project.slug} className="group py-5">
+                <Link href={`/projects/${project.slug}`} className="block">
                   <div className="flex items-baseline justify-between gap-4">
                     <h3 className="text-lg font-semibold transition-colors group-hover:text-accent-text">
                       {project.title}
