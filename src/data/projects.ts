@@ -15,7 +15,7 @@ export const projects: Project[] = [
     description:
       "This site — a Next.js portfolio for showcasing projects, photography, and my resume, deployed on Vercel.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-    repo: "https://github.com/your-username/portfolio",
+    repo: "https://github.com/sanidhyasbalsaraf-lgtm/sanidhyas-portfolio",
     year: "2026",
   },
 ];

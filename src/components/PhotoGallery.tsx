@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import type { Photo } from "@/lib/photos";
 
@@ -13,9 +13,23 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
   }
 
   function show(delta: number) {
-    if (activeIndex === null) return;
-    setActiveIndex((activeIndex + delta + photos.length) % photos.length);
+    setActiveIndex((current) =>
+      current === null ? null : (current + delta + photos.length) % photos.length,
+    );
   }
+
+  useEffect(() => {
+    if (activeIndex === null) return;
+
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") show(-1);
+      else if (e.key === "ArrowRight") show(1);
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeIndex]);
 
   return (
     <>

@@ -7,7 +7,7 @@ export const site = {
   location: "Mumbai, India",
   email: "sanidhyasbalsaraf@gmail.com",
   social: {
-    github: "https://github.com/your-username",
-    linkedin: "https://linkedin.com/in/your-profile",
+    github: "https://github.com/sanidhyasbalsaraf-lgtm",
+    linkedin: "https://www.linkedin.com/in/sanidhyabalsaraf/",
   },
 };
