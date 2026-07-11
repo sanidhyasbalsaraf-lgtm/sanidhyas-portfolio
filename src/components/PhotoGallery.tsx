@@ -1,0 +1,85 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import type { Photo } from "@/lib/photos";
+
+export default function PhotoGallery({ photos }: { photos: Photo[] }) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const active = activeIndex !== null ? photos[activeIndex] : null;
+
+  function close() {
+    setActiveIndex(null);
+  }
+
+  function show(delta: number) {
+    if (activeIndex === null) return;
+    setActiveIndex((activeIndex + delta + photos.length) % photos.length);
+  }
+
+  return (
+    <>
+      <div className="columns-1 gap-4 sm:columns-2 md:columns-3 [&>*]:mb-4">
+        {photos.map((photo, index) => (
+          <button
+            key={photo.src}
+            onClick={() => setActiveIndex(index)}
+            className="block w-full overflow-hidden rounded-xl border border-border"
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              width={800}
+              height={600}
+              className="h-auto w-full object-cover transition hover:opacity-90"
+              sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+            />
+          </button>
+        ))}
+      </div>
+
+      {active && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          onClick={close}
+        >
+          <button
+            onClick={close}
+            aria-label="Close"
+            className="absolute right-6 top-6 text-2xl text-white/80 hover:text-white"
+          >
+            ✕
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              show(-1);
+            }}
+            aria-label="Previous photo"
+            className="absolute left-4 text-3xl text-white/70 hover:text-white"
+          >
+            ‹
+          </button>
+          <Image
+            src={active.src}
+            alt={active.alt}
+            width={1600}
+            height={1200}
+            className="max-h-[85vh] w-auto max-w-[90vw] rounded-lg object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              show(1);
+            }}
+            aria-label="Next photo"
+            className="absolute right-4 text-3xl text-white/70 hover:text-white"
+          >
+            ›
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
