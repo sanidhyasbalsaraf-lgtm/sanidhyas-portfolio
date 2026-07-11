@@ -86,7 +86,7 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
               >
                 <button
                   onClick={() => setActiveIndex(index + 1)}
-                  className="group relative block w-full overflow-hidden rounded-xl border border-border transition-colors duration-200 hover:border-accent"
+                  className="group relative block w-full overflow-hidden rounded-2xl border border-border transition-colors duration-200 hover:border-accent"
                 >
                   <Image
                     src={photo.src}
@@ -159,7 +159,7 @@ export default function PhotoGallery({ photos }: { photos: Photo[] }) {
               alt={active.alt}
               width={1600}
               height={1200}
-              className="max-h-[calc(85vh-2.5rem)] w-auto max-w-full rounded-lg object-contain shadow-2xl"
+              className="max-h-[calc(85vh-2.5rem)] w-auto max-w-full rounded-2xl object-contain shadow-2xl"
             />
             {active.caption && (
               <p className="text-sm text-white/80">{active.caption}</p>
