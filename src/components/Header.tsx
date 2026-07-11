@@ -48,17 +48,25 @@ export default function Header() {
             onClick={() => setMenuOpen((open) => !open)}
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-foreground transition hover:border-foreground hover:bg-foreground/5 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/40"
           >
-            {menuOpen ? (
-              <span className="text-lg leading-none">✕</span>
-            ) : (
-              <span className="flex flex-col gap-1">
-                <span className="block h-0.5 w-4 bg-foreground" />
-                <span className="block h-0.5 w-4 bg-foreground" />
-                <span className="block h-0.5 w-4 bg-foreground" />
-              </span>
-            )}
+            <span className="relative flex h-4 w-4 items-center justify-center">
+              <span
+                className={`absolute block h-0.5 w-4 bg-foreground transition-transform duration-300 ${
+                  menuOpen ? "rotate-45" : "-translate-y-1.5"
+                }`}
+              />
+              <span
+                className={`absolute block h-0.5 w-4 bg-foreground transition-opacity duration-200 ${
+                  menuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`absolute block h-0.5 w-4 bg-foreground transition-transform duration-300 ${
+                  menuOpen ? "-rotate-45" : "translate-y-1.5"
+                }`}
+              />
+            </span>
           </button>
         </div>
       </div>
