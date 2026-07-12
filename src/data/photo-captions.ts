@@ -10,4 +10,5 @@ export const photoCaptions: Record<string, string> = {
   "snowdon-mountain-lake.jpg": "Snowdonia mountain lake panorama",
   "conwy-castle-railway.jpg": "Top-down railway/parking view near the castle",
   "conwy-river-cottage.jpg": "Stone cottage on the Conwy estuary",
+  "gull-portrait.jpg": "Gull portrait",
 };
