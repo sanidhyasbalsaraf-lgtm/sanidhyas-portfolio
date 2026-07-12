@@ -46,8 +46,8 @@ export default function Home() {
 
         <div className="animate-fade-in-up relative aspect-[4/5] overflow-hidden rounded-2xl border border-border">
           <Image
-            src="/photos/conwy-castle-aerial.jpg"
-            alt="Conwy Castle and harbour, one of the photos in the photography section"
+            src="/photos/conwy-river-cottage.jpg"
+            alt="Stone cottage on the Conwy estuary, one of the photos in the photography section"
             fill
             priority
             sizes="(min-width: 768px) 40vw, 100vw"
