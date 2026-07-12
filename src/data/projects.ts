@@ -8,6 +8,7 @@ export type Project = {
   tags: string[];
   highlights?: string[]; // shown on the project's own detail page
   image?: string; // optional path under /public, e.g. "/projects/my-shot.jpg"
+  gallery?: { src: string; caption: string }[]; // optional captioned screenshot walkthrough
   link?: string; // live demo URL
   repo?: string; // source code URL
   year?: string;
@@ -25,6 +26,24 @@ export const projects: Project[] = [
       "One-click insert types the draft straight into LinkedIn's own message box, or copy it to paste manually",
       "API key and writing-style samples stay in local browser storage only, never synced or sent anywhere except api.openai.com",
       "Manifest V3 with a configurable Settings page: model choice, tone, style notes, and a LinkedIn-matched or editorial visual theme with light/dark mode",
+    ],
+    gallery: [
+      {
+        src: "/projects/linkedin-copilot-onboarding-1-welcome.png",
+        caption: "1. Welcome - what the extension does and how it works",
+      },
+      {
+        src: "/projects/linkedin-copilot-onboarding-2-connect.png",
+        caption: "2. Connect - add an OpenAI API key, stored locally only",
+      },
+      {
+        src: "/projects/linkedin-copilot-onboarding-3-voice.png",
+        caption: "3. Your voice - background, writing samples, and tone",
+      },
+      {
+        src: "/projects/linkedin-copilot-onboarding-4-appearance.png",
+        caption: "4. Appearance - pick a look and jump into LinkedIn Jobs",
+      },
     ],
     tags: ["Chrome Extension", "JavaScript", "Manifest V3", "OpenAI API"],
     repo: "https://github.com/sanidhyasbalsaraf-lgtm/linkedin-copilot-extension",
