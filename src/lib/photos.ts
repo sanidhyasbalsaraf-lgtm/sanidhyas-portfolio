@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { photoCaptions } from "@/data/photo-captions";
+import { featuredPhoto, photoCaptions } from "@/data/photo-captions";
 
 export type Photo = {
   src: string;
@@ -24,7 +24,11 @@ export function getPhotos(): Photo[] {
   return fs
     .readdirSync(PHOTOS_DIR)
     .filter((file) => IMAGE_EXTENSIONS.has(path.extname(file).toLowerCase()))
-    .sort()
+    .sort((a, b) => {
+      if (a === featuredPhoto) return -1;
+      if (b === featuredPhoto) return 1;
+      return a.localeCompare(b);
+    })
     .map((file) => ({
       src: `/photos/${file}`,
       alt: photoCaptions[file] ?? filenameToAlt(file),

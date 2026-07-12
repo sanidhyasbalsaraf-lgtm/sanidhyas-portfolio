@@ -1,3 +1,7 @@
+// Which photo leads the photography page as the large "Featured" banner.
+// Change this filename to feature a different photo.
+export const featuredPhoto = "conwy-river-cottage.jpg";
+
 // Optional captions shown under each photo in /public/photos.
 // Key = filename (with extension). Photos without an entry here just show no caption.
 export const photoCaptions: Record<string, string> = {
@@ -5,4 +9,5 @@ export const photoCaptions: Record<string, string> = {
   "forest-valley-village.jpg": "Forest valley village",
   "snowdon-mountain-lake.jpg": "Snowdonia mountain lake panorama",
   "conwy-castle-railway.jpg": "Top-down railway/parking view near the castle",
+  "conwy-river-cottage.jpg": "Stone cottage on the Conwy estuary",
 };
