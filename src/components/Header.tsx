@@ -10,6 +10,7 @@ const links = [
   { href: "/projects", label: "Projects" },
   { href: "/photography", label: "Photography" },
   { href: "/resume", label: "Resume" },
+  { href: "/support", label: "Support" },
 ];
 
 export default function Header() {

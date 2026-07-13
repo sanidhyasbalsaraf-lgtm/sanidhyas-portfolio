@@ -12,6 +12,7 @@ export type Project = {
   actionScreenshots?: { src: string; caption: string }[]; // the tool working for real
   link?: string; // live demo URL
   repo?: string; // source code URL
+  supportUrl?: string; // in-site support/contact route, e.g. "/support"
   year?: string;
 };
 
@@ -66,6 +67,7 @@ export const projects: Project[] = [
     ],
     tags: ["Chrome Extension", "JavaScript", "Manifest V3", "OpenAI API"],
     repo: "https://github.com/sanidhyasbalsaraf-lgtm/linkedin-copilot-extension",
+    supportUrl: "/support",
     year: "2026",
   },
   {
