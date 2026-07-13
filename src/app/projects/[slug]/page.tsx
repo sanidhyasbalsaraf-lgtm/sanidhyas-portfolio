@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
+import ProjectGallery from "@/components/ProjectGallery";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -84,56 +85,24 @@ export default async function ProjectDetailPage(
         </div>
       )}
 
-      {project.actionScreenshots && project.actionScreenshots.length > 0 && (
-        <div className="flex flex-col gap-4 border-t border-border pt-8">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
-            In action
-          </h2>
-          <div className="flex flex-col gap-6">
-            {project.actionScreenshots.map((shot) => (
-              <figure key={shot.src} className="flex flex-col gap-2">
-                <div className="overflow-hidden rounded-2xl border border-border">
-                  <Image
-                    src={shot.src}
-                    alt={shot.caption}
-                    width={1920}
-                    height={960}
-                    className="h-auto w-full"
-                  />
-                </div>
-                <figcaption className="text-sm text-muted">
-                  {shot.caption}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
+      {project.actionScreenshots && (
+        <ProjectGallery
+          title="Demo"
+          images={project.actionScreenshots}
+          width={1920}
+          height={960}
+          layout="single"
+        />
       )}
 
-      {project.onboardingScreenshots && project.onboardingScreenshots.length > 0 && (
-        <div className="flex flex-col gap-4 border-t border-border pt-8">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
-            Getting started
-          </h2>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {project.onboardingScreenshots.map((shot) => (
-              <figure key={shot.src} className="flex flex-col gap-2">
-                <div className="overflow-hidden rounded-2xl border border-border">
-                  <Image
-                    src={shot.src}
-                    alt={shot.caption}
-                    width={791}
-                    height={762}
-                    className="h-auto w-full"
-                  />
-                </div>
-                <figcaption className="text-sm text-muted">
-                  {shot.caption}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
+      {project.onboardingScreenshots && (
+        <ProjectGallery
+          title="Getting started"
+          images={project.onboardingScreenshots}
+          width={791}
+          height={762}
+          layout="grid"
+        />
       )}
 
       {project.highlights && project.highlights.length > 0 && (
