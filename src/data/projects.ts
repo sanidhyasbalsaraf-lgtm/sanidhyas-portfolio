@@ -8,7 +8,8 @@ export type Project = {
   tags: string[];
   highlights?: string[]; // shown on the project's own detail page
   image?: string; // optional path under /public, e.g. "/projects/my-shot.jpg"
-  gallery?: { src: string; caption: string }[]; // optional captioned screenshot walkthrough
+  onboardingScreenshots?: { src: string; caption: string }[]; // setup walkthrough
+  actionScreenshots?: { src: string; caption: string }[]; // the tool working for real
   link?: string; // live demo URL
   repo?: string; // source code URL
   year?: string;
@@ -27,7 +28,7 @@ export const projects: Project[] = [
       "API key and writing-style samples stay in local browser storage only, never synced or sent anywhere except api.openai.com",
       "Manifest V3 with a configurable Settings page: model choice, tone, style notes, and a LinkedIn-matched or editorial visual theme with light/dark mode",
     ],
-    gallery: [
+    onboardingScreenshots: [
       {
         src: "/projects/linkedin-copilot-onboarding-1-welcome.png",
         caption: "1. Welcome - what the extension does and how it works",
@@ -43,6 +44,24 @@ export const projects: Project[] = [
       {
         src: "/projects/linkedin-copilot-onboarding-4-appearance.png",
         caption: "4. Appearance - pick a look and jump into LinkedIn Jobs",
+      },
+    ],
+    actionScreenshots: [
+      {
+        src: "/projects/linkedin-copilot-action-1-capture.png",
+        caption: "The panel auto-captures the job description and hiring manager info from the posting",
+      },
+      {
+        src: "/projects/linkedin-copilot-action-2-message-types.png",
+        caption: "Choose a connection note, InMail, or a reply to the job posting",
+      },
+      {
+        src: "/projects/linkedin-copilot-action-3-inline-capture.png",
+        caption: "A quick-capture button also sits right above the job's \"About the job\" section",
+      },
+      {
+        src: "/projects/linkedin-copilot-action-4-inserted.png",
+        caption: "The generated draft, subject line included, inserted straight into LinkedIn's message box",
       },
     ],
     tags: ["Chrome Extension", "JavaScript", "Manifest V3", "OpenAI API"],
