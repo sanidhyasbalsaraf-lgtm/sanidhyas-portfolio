@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { site } from "@/data/site";
 import "./globals.css";
 
@@ -55,6 +56,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <GoogleAnalytics />
       </body>
     </html>
   );
