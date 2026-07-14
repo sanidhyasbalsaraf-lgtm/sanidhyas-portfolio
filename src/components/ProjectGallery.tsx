@@ -123,16 +123,6 @@ export default function ProjectGallery({
           >
             ✕
           </button>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              show(-1);
-            }}
-            aria-label="Previous image"
-            className="absolute left-4 z-10 flex h-12 w-12 items-center justify-center rounded-full text-3xl text-white/70 transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-accent-foreground"
-          >
-            ‹
-          </button>
           <div
             key={active.src}
             className="animate-fade-in-up relative z-10 flex max-h-[85vh] max-w-[90vw] flex-col items-center gap-3"
@@ -147,13 +137,27 @@ export default function ProjectGallery({
             />
             <p className="text-sm text-white/80">{active.caption}</p>
           </div>
+          {/* Nav buttons come after the image container in the DOM so they always
+              paint on top of it - otherwise a wide/landscape image's container box
+              (constrained to max-w-[90vw]) can visually overlap the Previous button
+              on narrow screens and silently swallow the tap. */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              show(-1);
+            }}
+            aria-label="Previous image"
+            className="absolute left-4 z-20 flex h-12 w-12 items-center justify-center rounded-full text-3xl text-white/70 transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-accent-foreground"
+          >
+            ‹
+          </button>
           <button
             onClick={(e) => {
               e.stopPropagation();
               show(1);
             }}
             aria-label="Next image"
-            className="absolute right-4 z-10 flex h-12 w-12 items-center justify-center rounded-full text-3xl text-white/70 transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-accent-foreground"
+            className="absolute right-4 z-20 flex h-12 w-12 items-center justify-center rounded-full text-3xl text-white/70 transition-all duration-200 hover:scale-110 hover:bg-accent hover:text-accent-foreground"
           >
             ›
           </button>
